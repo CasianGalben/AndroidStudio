@@ -1,0 +1,86 @@
+package com.casian.aplicatie;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+
+import android.Manifest;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
+
+public class MainActivity extends AppCompatActivity {
+    private View view;
+    private final static String TAG = "APP";
+    public static final int REQUEST_CODE= 2;
+    private final int CERERE_PERMISIUNE = 100;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main); //seteaza seteaza content view
+        setTitle(getResources().getString(R.string.app_name2));
+
+        Button mybtnTrimite = findViewById(R.id.btn_trimite);
+        mybtnTrimite.setOnClickListener(new View.OnClickListener() {
+            @Override
+
+            public void onClick(View view) {
+                String numeString = getResources().getString(R.string.Capitolul1);
+            Intent intent = new Intent(MainActivity.this,EcranSecundar.class);
+            intent.putExtra("Nume",numeString);
+            startActivityForResult(intent,REQUEST_CODE);
+            }
+        });
+
+        Button myBTContacte = findViewById(R.id.btn_contacte);
+        myBTContacte.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                citestePermision();
+            }
+        });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(requestCode == REQUEST_CODE){
+
+            if(data != null){
+                Toast.makeText(getApplicationContext(),data.getStringExtra("mesaj"), Toast.LENGTH_LONG).show();
+
+            }
+
+
+
+        }
+    }
+
+    public void citestePermision(){    // pentru a verifica daca permisiunea exista
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_CONTACTS)!= PackageManager.PERMISSION_GRANTED) { // daca permisiunea nu este data atunci facem reqest
+            ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.READ_CONTACTS},CERERE_PERMISIUNE);
+            }
+
+        }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) { // daca rezultatel are lungiumea mai mare ca o si in acest array ape pozitia 0 avem permisiunea data
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        switch (requestCode) {
+            case CERERE_PERMISIUNE:
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    Toast.makeText(getApplicationContext(), "Permisiuni acordata", Toast.LENGTH_LONG).show();
+                } else {
+                    Toast.makeText(getApplicationContext(), "Permisiunile nu sunt acordate", Toast.LENGTH_LONG).show();
+                }
+        }
+    }
+}
+
+

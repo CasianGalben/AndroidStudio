@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="capitole">
+    <item>Capitolul I</item>
+    <item>Capitolul II</item>
+    <item>Capitolul III</item>
+    <item>Capitolul IV</item>
+    </string-array>
+    
+</resources>

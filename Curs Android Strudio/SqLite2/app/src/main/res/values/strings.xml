@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">SqLite2</string>
+    <string name="string_user_name">Nume utilizator</string>
+    <string name="string_user_age">Varsta</string>
+    <string name="switch_state">Activ</string>
+    <string name="btn_afisare">Afisare</string>
+    <string name="btn_add">Adauga</string>
+</resources>

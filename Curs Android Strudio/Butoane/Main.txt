@@ -1,0 +1,53 @@
+package com.casian.aplicatie;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+import android.util.Log;
+import android.widget.TextView;
+
+public class MainActivity extends AppCompatActivity {
+    private final static String TAG = "APP";
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main); //seteaza seteaza content view
+        setTitle(getResources().getString(R.string.app_name2));
+
+        String [] cap = getResources().getStringArray(R.array.capitole);
+
+        for(String capitol :cap){
+            Log.d(TAG,"CAPITOL:"+ capitol );
+        }
+
+        TextView textHome = findViewById(R.id.textulMeu);
+        textHome.setText("Salut, acesta este primul meu text");
+        textHome.setTextColor(getResources().getColor(R.color.black));
+
+        TextView textHi = findViewById(R.id.Hi);
+        textHi.setText("Bine ai venit in aplicatie");
+        textHi.setTextColor(getResources().getColor(R.color.purple_500));
+
+    }
+
+
+
+    @Override //Seteaza afisarea utilizatorului ce afisam un momentul de fata
+    protected void onStart() {
+        super.onStart();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+    }
+
+    @Override //Cand iesim din aplicatie
+    protected void onDestroy() {
+        super.onDestroy();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+    }

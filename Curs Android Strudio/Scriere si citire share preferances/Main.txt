@@ -1,0 +1,91 @@
+package com.casian.aplicatie;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+
+import android.Manifest;
+import android.annotation.SuppressLint;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ShareActionProvider;
+import android.widget.TextView;
+import android.widget.Toast;
+
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+    private View view;
+    private final static String TAG = "APP";
+    public static final int REQUEST_CODE= 2;
+    private final int CERERE_PERMISIUNE = 100;
+    private SharedPreferences msharedPreferences;
+    private String sharedPref = "mypref";
+    private EditText etnume;
+    private EditText etvarsta;
+    private EditText etadresa;
+    private TextView tvNume;
+    private TextView tvVarsta;
+    private TextView tvAdresa;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main); //seteaza seteaza content view
+        setTitle(getResources().getString(R.string.app_name2));
+
+        msharedPreferences = getSharedPreferences(sharedPref,MODE_PRIVATE); // de fiecare data stokam intrun fisier share pref cu key pe care vrem noi
+        etnume = findViewById(R.id.etNume);
+        etadresa = findViewById(R.id.etAdresa);
+        etvarsta = findViewById(R.id.etVarsta);
+        tvAdresa = findViewById(R.id.tvAdresa);
+        tvNume = findViewById(R.id.tvNume);
+        tvVarsta = findViewById(R.id.tvVarsta);
+        Button salvareDate = findViewById(R.id.btnSave);
+        Button citireDate = findViewById(R.id.btnRead);
+        salvareDate.setOnClickListener(this);
+        citireDate.setOnClickListener(this);
+
+    }
+
+    public void salvareDate(){
+
+        String nume = etnume.getText().toString();
+        String varsta = etvarsta.getText().toString();
+        String adresa = etadresa.getText().toString();
+        //accesam acest editor pentru a putea edita acest share pref in care noi stokam datele
+        @SuppressLint("CommitPrefEdits") SharedPreferences.Editor editor = msharedPreferences.edit();
+        editor.putString("nume",nume);
+        editor.putString("varsta",varsta);
+        editor.putString("adresa",adresa);
+
+        editor.apply();
+        Toast.makeText(getApplicationContext(),"Datele au fost salvate cu succes",Toast.LENGTH_LONG).show();
+    }
+
+    private void citireDate() {
+       tvNume.setText(msharedPreferences.getString("nume","Not found"));
+       tvAdresa.setText(msharedPreferences.getString("adresa","Not found"));
+       tvVarsta.setText(msharedPreferences.getString("varsta","Not found"));
+
+    }
+
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.btnSave:
+                salvareDate();
+                break;
+            case R.id.btnRead:
+                citireDate();
+                break;
+        }
+    }
+
+
+}

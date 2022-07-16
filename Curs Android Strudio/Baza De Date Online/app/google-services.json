@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1056171549304",
+    "firebase_url": "https://listauseri-29b05-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "listauseri-29b05",
+    "storage_bucket": "listauseri-29b05.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1056171549304:android:4465e3cc62045a46b5838d",
+        "android_client_info": {
+          "package_name": "com.casian.licentagalbencasiandb"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1056171549304-l1vkvumtnqbdshshqjr7duuprltafbc0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC_TbFqvg94Jc6KWgoZpQAIQHHGOwKt9sw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1056171549304-l1vkvumtnqbdshshqjr7duuprltafbc0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">AplicatieLicenta</string>
+    <string name="app_name2">AplicatieLicenta Title</string>
+    <string name="app_name3">Ecran Secundar</string>
+    <string name="Quiz">Quiz</string>
+    <string name="Email">Email</string>
+    <string name="Password">Password</string>
+    <string name="Hi">Hi!</string>
+    <string name="Capitolul1">CAPITOLUL I</string>
+    <string name="Next">Next</string>
+    <string name="Intrebare">Intrebari</string>
+    <string name="Adevarat">True</string>
+    <string name="Fals">False</string>
+
+
+    <string name="Intreabare1">Intrebarea 1 este acum afisata</string>
+    <string name="Intreabare2">Intrebarea 2 este acum afisata</string>
+    <string name="Intreabare3">Intrebarea 3 este acum afisata</string>
+    <string name="Intreabare4">Intrebarea 4 este acum afisata</string>
+    <string name="Intreabare5">Intrebarea 5 este acum afisata</string>
+    <string name="Intreabare6">Intrebarea 6 este acum afisata</string>
+    <string name="Intreabare7">Intrebarea 7 este acum afisata</string>
+    <string name="Intreabare8">Intrebarea 8 este acum afisata</string>
+
+
+
+    <string name="TrueQ">Raspunsul este corect!</string>
+    <string name="FalseQ">Raspunsul este incorect :(</string>
+
+
+
+</resources>

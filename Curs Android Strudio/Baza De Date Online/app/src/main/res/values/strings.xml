@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">LicentaGALBENCASIANDB</string>
+    <string name="firstName">First Name:</string>
+    <string name="lastName">Last Name:</string>
+    <string name="age">Age:</string>
+    <string name="defoult_name">-------</string>
+
+</resources>

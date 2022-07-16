@@ -1,0 +1,64 @@
+package com.casian.aplicatie;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ListView;
+import android.widget.TextView;
+
+import com.google.android.material.snackbar.Snackbar;
+
+public class MainActivity extends AppCompatActivity {
+    private View view;
+    private final static String TAG = "APP";
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main); //seteaza seteaza content view
+        setTitle(getResources().getString(R.string.app_name2));
+
+        String [] cap = getResources().getStringArray(R.array.capitole);
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,R.layout.item_lista,cap); // adaptor in care preluam stringul de capitole
+        ListView list = findViewById(R.id.myList);
+        list.setAdapter(adapter);
+
+        view=findViewById(R.id.my_layout);
+    }
+
+
+
+
+
+
+    @Override //Seteaza afisarea utilizatorului ce afisam un momentul de fata
+    protected void onStart() {
+        super.onStart();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+    }
+
+    @Override //Cand iesim din aplicatie
+    protected void onDestroy() {
+        super.onDestroy();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+    }
+
+
+}

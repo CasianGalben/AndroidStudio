@@ -1,0 +1,59 @@
+public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+    private TextView mytv;
+    private final static String TAG = "APP";
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main); //seteaza seteaza content view
+        setTitle(getResources().getString(R.string.app_name2));
+
+        String [] cap = getResources().getStringArray(R.array.capitole);
+
+        for(String capitol :cap){
+            Log.d(TAG,"CAPITOL:"+ capitol );
+        }
+
+        Button mybtn = findViewById(R.id.myBTN);
+        mytv = findViewById(R.id.myTV);
+
+        // mybtn.setOnClickListener(this); //ne referim la acest context mainactivity
+        // pentru metoda 1
+    }
+
+
+
+    @Override //Seteaza afisarea utilizatorului ce afisam un momentul de fata
+    protected void onStart() {
+        super.onStart();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+    }
+
+    @Override //Cand iesim din aplicatie
+    protected void onDestroy() {
+        super.onDestroy();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+    }
+    // METODA 1
+    @Override       // am implementat interfata View.OnClickListener si pentru functia  mybtn.setOnClickListener(this) creem o functie ca sa nu mai scriem codul mereu// functia merge pe id uri
+    public void onClick(View v) {
+        switch (v.getId()){
+
+            case R.id.myBTN:
+                mytv.setText("Text schimbat cu interfata View.On...");
+                break;
+
+        }
+    }
+    // METODA 2
+    public void schimbaText(View view){
+        mytv.setText("Text schimbat cu METODA PE ONCLIK DIN LAYOUT");
+    }
+
